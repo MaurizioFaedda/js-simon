@@ -10,7 +10,7 @@ $(document).ready(function() {
     console.log(numeri_casuali);
 
     // Da lì parte un timer di 30 secondi.
-    var time = 5;
+    var time = 10;
     var clock = setInterval(function() {
 
         // stampo il countdown
@@ -18,11 +18,23 @@ $(document).ready(function() {
         time--;
 
         // Dopo 30 secondi, vengono rimossi i numeri dalla pagina
-        if(time < 0) {
-            clearInterval(clock);
+        if(time < -1) {
             $('#number-random').toggle();
             $('#hide').toggle();
             $('#alert').toggle();
+        // l'utente deve inserire (tramite prompt) i numeri che ha visto precedentemente, uno alla volta.
+
+        }
+
+
+        if(time < -2) {
+            clearInterval(clock);
+
+        // l'utente deve inserire (tramite prompt) i numeri che ha visto precedentemente, uno alla volta.
+        var numeri_utente = [];
+        for (var i = 0; i < 5; i++) {
+            var numero_prompt = prompt('Bene! Ora inserisci uno alla volta i numeri che hai memorizzato')
+        }
 
         }
     }, 1000);
