@@ -44,15 +44,15 @@ $(document).ready(function() {
 
 
         }
+        $('#risultato').text('Hai inserito ' + numeri_corretti.length + ' numeri corretti su i ' + numeri_casuali.length + ' totali. I numeri che hai memorizzato sono : ' + numeri_corretti + '.')
+
         console.log(numeri_corretti);
         console.log(numeri_sbagliati);
         }
     }, 1000);
 
-
-
-
     // Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei numeri da indovinare sono stati individuati.
+
 
 })
 
