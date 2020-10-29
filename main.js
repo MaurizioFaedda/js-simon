@@ -22,8 +22,6 @@ $(document).ready(function() {
             $('#number-random').toggle();
             $('#hide').hide();
             $('#alert').toggle();
-        // l'utente deve inserire (tramite prompt) i numeri che ha visto precedentemente, uno alla volta.
-
         }
 
 
@@ -31,18 +29,24 @@ $(document).ready(function() {
             clearInterval(clock);
 
         // l'utente deve inserire (tramite prompt) i numeri che ha visto precedentemente, uno alla volta.
-        var numeri_utente = [];
+        var numeri_corretti = [];
+        var numeri_sbagliati = [];
         for (var i = 0; i < 5; i++) {
             var numero_prompt = parseInt(prompt('Bene! Ora inserisci uno alla volta i numeri che hai memorizzato'));
-            numeri_utente.push(numero_prompt);
-            console.log(numeri_utente);
+            var numero_utente = numero_prompt[i];
+            if (numeri_casuali.includes(numero_utente) === true)   {
+                numeri_corretti.push(numero_utente);
+            } else if (numeri_casuali.includes(numero_utente) === false) {
+                numeri_sbagliati.push(numero_utente);
+            }
 
 
         }
-
+        console.log(numeri_corretti);
+        console.log(numeri_sbagliati);
         }
     }, 1000);
-    // Dopo 30 secondi, vengono rimossi i numeri dalla pagina e l'utente deve inserire (tramite prompt) i numeri che ha visto precedentemente, uno alla volta.
+
 
 
 
