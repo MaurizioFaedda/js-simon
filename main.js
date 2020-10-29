@@ -31,13 +31,15 @@ $(document).ready(function() {
         // l'utente deve inserire (tramite prompt) i numeri che ha visto precedentemente, uno alla volta.
         var numeri_corretti = [];
         var numeri_sbagliati = [];
+
         for (var i = 0; i < 5; i++) {
             var numero_prompt = parseInt(prompt('Bene! Ora inserisci uno alla volta i numeri che hai memorizzato'));
-            var numero_utente = numero_prompt[i];
-            if (numeri_casuali.includes(numero_utente) === true)   {
-                numeri_corretti.push(numero_utente);
-            } else if (numeri_casuali.includes(numero_utente) === false) {
-                numeri_sbagliati.push(numero_utente);
+        // se il numero inserito dell'utente è corretto....
+            if (numeri_casuali.includes(numero_prompt) === true)   {
+                numeri_corretti.push(numero_prompt);
+        //altrimenti....
+            } else {
+                numeri_sbagliati.push(numero_prompt);
             }
 
 
