@@ -2,15 +2,22 @@ $(document).ready(function() {
 
     // Visualizzare in pagina 5 numeri casuali.
     var numeri_casuali = [];
-    for (var i = 0; i < 5; i++) {
+    while (numeri_casuali.length < 5) {
         var numero_corrente = getRndInteger(1, 100);
-        numeri_casuali.push(numero_corrente);
+        if(!numeri_casuali.includes(numero_corrente)) {
+            numeri_casuali.push(numero_corrente);
+        }
     }
-    $('#number-random').text(numeri_casuali);
-    console.log(numeri_casuali);
+    // for (var i = 0; i < 5; i++) {
+    //     var numero_corrente = getRndInteger(1, 100);
+    //     numeri_casuali.push(numero_corrente);
+    // }
+    var numeri_stringa = numeri_casuali.join(' - ')
+    $('#number-random').text(numeri_stringa);
+    console.log(numeri_stringa);
 
     // Da lì parte un timer di 30 secondi.
-    var time = 5;
+    var time = 6;
     var clock = setInterval(function() {
 
         // stampo il countdown
@@ -35,7 +42,7 @@ $(document).ready(function() {
         for (var i = 0; i < 5; i++) {
             var numero_prompt = parseInt(prompt('Bene! Ora inserisci uno alla volta i numeri che hai memorizzato'));
         // se il numero inserito dell'utente è corretto....
-            if (numeri_casuali.includes(numero_prompt) === true)   {
+            if ((numeri_casuali.includes(numero_prompt) === true) && (!numeri_corretti.includes(numero_prompt)))   {
                 numeri_corretti.push(numero_prompt);
         //altrimenti....
             } else {
@@ -44,7 +51,7 @@ $(document).ready(function() {
 
 
         }
-        $('#risultato').text('Hai inserito ' + numeri_corretti.length + ' numeri corretti su i ' + numeri_casuali.length + ' totali. I numeri che hai memorizzato sono : ' + numeri_corretti + '.')
+        $('#risultato').text('Hai inserito ' + numeri_corretti.length + ' numeri corretti su i ' + numeri_casuali.length + ' totali. I numeri che hai memorizzato sono : ' + numeri_corretti.join(' ') + '.')
 
         console.log(numeri_corretti);
         console.log(numeri_sbagliati);
